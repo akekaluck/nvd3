@@ -172,7 +172,7 @@ nv.models.discreteBar = function() {
             }
 
             //TODO: Add default value to the same as 'showValues' because it must update project 'angularjs-nvd3-directives' also
-            var showMidLabel = shwoValues;
+            var showMidLabel = showValues;
             if (showMidLabel) {
               barsEnter.append('text')
                   .attr('class', function(d,i) {
@@ -189,7 +189,7 @@ nv.models.discreteBar = function() {
                   .attr('class', function(d,i){
                     return getY(d,i) > 0.0 ? 'mid-label' : 'mid-label disable';
                   })
-                  .watchTransition(renderWatch, 'discreteBar: bars text')
+                  .watchTransition(renderWatch, 'discreteBar: bars text.mid-label')
                   .attr('x', x.rangeBand() * .9 / 2)
                   .attr('y', function(d,i) { return getY(d,i) < 0 ? y(getY(d,i)) - y(0) + 12 : -4 })
 
