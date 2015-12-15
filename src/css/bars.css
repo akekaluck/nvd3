@@ -45,3 +45,12 @@
     fill: rgba(0,0,0,1);
     stroke: rgba(0,0,0,0);
 }
+
+.nvd3 text.mid-label{
+    fill:white !important;
+    font-weight: bold !important;
+}
+
+.nvd3 text.mid-label.disable {
+  display: none;
+}

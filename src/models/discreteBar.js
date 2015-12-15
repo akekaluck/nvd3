@@ -171,6 +171,33 @@ nv.models.discreteBar = function() {
                 bars.selectAll('text').remove();
             }
 
+            //TODO: Add default value to the same as 'showValues' because it must update project 'angularjs-nvd3-directives' also
+            var showMidLabel = shwoValues;
+            if (showMidLabel) {
+              barsEnter.append('text')
+                  .attr('class', function(d,i) {
+                    return 'mid-label';
+                  })
+                  .attr('text-anchor', 'middle')
+              ;
+
+              bars.select('text.mid-label')
+                  .text(function(d,i) {
+                    // return valueFormat(getY(d,i))
+                    return d[2] + '/' + d[3];
+                  })
+                  .attr('class', function(d,i){
+                    return getY(d,i) > 0.0 ? 'mid-label' : 'mid-label disable';
+                  })
+                  .watchTransition(renderWatch, 'discreteBar: bars text')
+                  .attr('x', x.rangeBand() * .9 / 2)
+                  .attr('y', function(d,i) { return getY(d,i) < 0 ? y(getY(d,i)) - y(0) + 12 : -4 })
+
+              ;
+            } else {
+              bars.selectAll('text.mid-label').remove();
+            }
+
             bars
                 .attr('class', function(d,i) { return getY(d,i) < 0 ? 'nv-bar negative' : 'nv-bar positive' })
                 .style('fill', function(d,i) { return d.color || color(d,i) })
