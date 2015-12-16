@@ -772,7 +772,7 @@ Interactive Layer
 DiscreteBar mid-label style
 */
 
-.nvd3 text.mid-lable {
+.nvd3 text.mid-label {
   fill: white !important;
   font-weight: bold !important;
 }
