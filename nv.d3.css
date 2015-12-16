@@ -767,3 +767,16 @@ Interactive Layer
 .nvd3 line.nv-guideline {
   stroke: #ccc;
 }
+
+/*
+DiscreteBar mid-label style
+*/
+
+.nvd3 text.mid-lable {
+  fill: white !important;
+  font-weight: bold !important;
+}
+
+.nvd3 text.mid-label.disable {
+  display: none;
+}
